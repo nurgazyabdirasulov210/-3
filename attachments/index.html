@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>English Start</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#eef4ff;color:#172554}
+.app{max-width:430px;margin:auto;min-height:100vh;background:#f8fbff;position:relative;padding-bottom:82px}
+header{padding:22px 20px 10px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:800;color:#1769e0}.gear{font-size:22px}
+.screen{padding:8px 18px}.hello{font-size:25px;font-weight:800;margin:10px 0 5px}.muted{color:#667085}
+.streak{background:white;border-radius:20px;padding:16px;margin:16px 0;box-shadow:0 5px 20px #dce8fb}.streak b{font-size:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card{border:0;border-radius:18px;padding:20px;text-align:left;color:white;min-height:125px;font-size:17px;font-weight:800;box-shadow:0 5px 14px #d8e4f8}.blue{background:#1683f7}.green{background:#22b86b}.purple{background:#7258e8}.orange{background:#f59b23}.red{background:#f14d68}.wide{grid-column:1/-1}
+.card span{display:block;font-size:13px;font-weight:500;margin-top:8px;opacity:.9}
+.view{display:none}.view.active{display:block}
+.back{border:0;background:none;font-size:20px;padding:5px 0}.title{font-size:23px;font-weight:800;margin:10px 0 16px}
+.word{background:white;border-radius:17px;padding:13px;margin:9px 0;display:flex;align-items:center;gap:12px;box-shadow:0 3px 13px #e0e9f8}.pic{width:50px;height:50px;border-radius:13px;background:#eaf2ff;display:grid;place-items:center;font-size:28px}.word b{display:block}.word small{color:#7a8699}.sound{margin-left:auto;border:0;background:#e8f1ff;border-radius:50%;width:38px;height:38px}
+.practice{background:white;border-radius:22px;padding:22px;text-align:center;box-shadow:0 5px 20px #dce8fb}.bigemoji{font-size:80px}.english{font-size:28px;font-weight:800;margin:10px}.translation{font-size:18px;color:#64748b}.choices{display:grid;gap:10px;margin-top:20px}.choice{padding:15px;border:2px solid #dbe5f4;background:white;border-radius:14px;text-align:left;font-size:16px}.choice.correct{border-color:#22b86b;background:#eafff3}.choice.wrong{border-color:#f14d68;background:#fff0f3}
+.primary{width:100%;border:0;background:#176ff0;color:white;padding:15px;border-radius:15px;font-size:16px;font-weight:800;margin-top:14px}
+.chat{background:white;border-radius:20px;padding:15px}.bubble{padding:12px 15px;border-radius:16px;margin:9px 0;max-width:85%}.a{background:#eaf2ff}.b{background:#176ff0;color:white;margin-left:auto}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);height:72px;background:white;border-top:1px solid #e6edf8;display:flex;justify-content:space-around;align-items:center}.nav{border:0;background:none;color:#7b8798;font-size:12px}.nav.active{color:#176ff0;font-weight:800}.nav div{font-size:22px;margin-bottom:3px}
+.progress{height:10px;background:#e7eef9;border-radius:10px;overflow:hidden}.progress i{display:block;height:100%;width:45%;background:#176ff0}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="logo">🎓 English Start</div><div class="gear">⚙️</div></header>
+
+<main>
+<section id="home" class="screen view active">
+  <div class="hello">Привет! 👋</div><div class="muted">Сегодня — отличный день, чтобы стать лучше.</div>
+  <div class="streak">🔥 <b>3 дня подряд</b><br><span class="muted">Цель: заниматься каждый день</span><div class="progress" style="margin-top:10px"><i></i></div></div>
+  <div class="grid">
+    <button class="card blue" onclick="show('words')">📖<br>Слова<span>Новые слова</span></button>
+    <button class="card green" onclick="show('talk')">💬<br>Разговор<span>Фразы для общения</span></button>
+    <button class="card purple" onclick="show('listen')">🎧<br>Слушай<span>Понимай речь</span></button>
+    <button class="card orange" onclick="show('task')">✏️<br>Задания<span>Проверь знания</span></button>
+    <button class="card red wide" onclick="show('game')">🎮 Игра<span>Учись с удовольствием</span></button>
+  </div>
+</section>
+
+<section id="words" class="screen view">
+<button class="back" onclick="show('home')">‹ Назад</button><div class="title">📖 Слова</div>
+<div class="word"><div class="pic">🐱</div><div><b>cat</b><small>[kæt] · кошка</small></div><button class="sound" onclick="speak('cat')">🔊</button></div>
+<div class="word"><div class="pic">🐶</div><div><b>dog</b><small>[dɔːɡ] · собака</small></div><button class="sound" onclick="speak('dog')">🔊</button></div>
+<div class="word"><div class="pic">☀️</div><div><b>sun</b><small>[sʌn] · солнце</small></div><button class="sound" onclick="speak('sun')">🔊</button></div>
+<div class="word"><div class="pic">🏠</div><div><b>house</b><small>[haʊs] · дом</small></div><button class="sound" onclick="speak('house')">🔊</button></div>
+<button class="primary" onclick="show('practice')">Начать тренировку</button>
+</section>
+
+<section id="practice" class="screen view">
+<button class="back" onclick="show('words')">‹ Слова</button><div class="title">Тренировка</div>
+<div class="practice"><div class="bigemoji">🐱</div><div class="english">cat</div><div class="translation">Выбери перевод</div>
+<div class="choices"><button class="choice" onclick="answer(this,false)">собака</button><button class="choice" onclick="answer(this,true)">кошка</button><button class="choice" onclick="answer(this,false)">дом</button></div></div>
+</section>
+
+<section id="talk" class="screen view">
+<button class="back" onclick="show('home')">‹ Назад</button><div class="title">💬 Разговор</div>
+<div class="chat"><div class="bubble a">Hello! 👋</div><div class="bubble b">Hello!</div><div class="bubble a">My name is Alex. What's your name?</div><div class="bubble b">My name is ...</div><div class="bubble a">Nice to meet you!</div></div>
+<button class="primary" onclick="speak('Hello! My name is Alex. Nice to meet you!')">🔊 Послушать диалог</button>
+</section>
+
+<section id="listen" class="screen view">
+<button class="back" onclick="show('home')">‹ Назад</button><div class="title">🎧 Слушай</div>
+<div class="practice"><div style="font-size:70px">🔊</div><div class="english">Good morning!</div><div class="translation">Выбери правильный перевод</div>
+<div class="choices"><button class="choice" onclick="answer(this,false)">До свидания!</button><button class="choice" onclick="answer(this,true)">Доброе утро!</button><button class="choice" onclick="answer(this,false)">Как дела?</button></div></div>
+</section>
+
+<section id="task" class="screen view">
+<button class="back" onclick="show('home')">‹ Назад</button><div class="title">✏️ Задание</div>
+<div class="practice"><div class="english">I ___ a student.</div><div class="choices"><button class="choice" onclick="answer(this,true)">am</button><button class="choice" onclick="answer(this,false)">is</button><button class="choice" onclick="answer(this,false)">are</button><button class="choice" onclick="answer(this,false)">be</button></div></div>
+</section>
+
+<section id="game" class="screen view">
+<button class="back" onclick="show('home')">‹ Назад</button><div class="title">🎮 Игра</div>
+<div class="practice"><div style="font-size:75px">🦉</div><div class="english">Отлично!</div><div class="translation">Ты получаешь звёзды за правильные ответы.</div><div style="font-size:35px;margin:20px">⭐ +10</div><button class="primary" onclick="show('practice')">Следующий вопрос</button></div>
+</section>
+
+<section id="profile" class="screen view">
+<div class="title">👤 Профиль</div><div class="streak"><b>Уровень 1</b><div class="progress" style="margin-top:12px"><i style="width:45%"></i></div><p>45 / 100 опыта</p>🔥 3 дня &nbsp; ⭐ 120 звёзд &nbsp; 🏆 12 уроков</div>
+<div class="word">📚 <b>Мой словарь</b><span style="margin-left:auto">›</span></div><div class="word">⚙️ <b>Настройки</b><span style="margin-left:auto">›</span></div>
+</section>
+</main>
+
+<nav class="bottom">
+<button class="nav active" onclick="show('home',this)"><div>🏠</div>Главная</button>
+<button class="nav" onclick="show('words',this)"><div>📖</div>Уроки</button>
+<button class="nav" onclick="show('game',this)"><div>🎮</div>Игра</button>
+<button class="nav" onclick="show('profile',this)"><div>👤</div>Профиль</button>
+</nav>
+</div>
+<script>
+function show(id,btn){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');if(btn){document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}window.scrollTo(0,0)}
+function speak(t){if('speechSynthesis'in window){let u=new SpeechSynthesisUtterance(t);u.lang='en-US';speechSynthesis.speak(u)}}
+function answer(el,ok){el.classList.add(ok?'correct':'wrong');if(ok){setTimeout(()=>alert('Отлично! ⭐ +10'),200)}}
+</script>
+</body></html>

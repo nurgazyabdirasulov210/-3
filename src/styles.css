@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #e8eef6;
+  --color-surface: #ffffff;
+  --color-surface-2: #f5f8fc;
+  --color-ink: #14233b;
+  --color-muted: #5c6b80;
+  --color-faint: #8a97a8;
+  --color-primary: #1a6fe8;
+  --color-primary-fg: #f7fbff;
+  --color-primary-soft: #e7f0fd;
+  --color-teal: #0f8a78;
+  --color-teal-fg: #f4fffc;
+  --color-teal-soft: #e4f6f2;
+  --color-navy: #3b4d8c;
+  --color-navy-fg: #f5f7ff;
+  --color-navy-soft: #e8ecf8;
+  --color-sky: #1787b5;
+  --color-sky-fg: #f3fbff;
+  --color-sky-soft: #e5f4fb;
+  --color-success: #188f56;
+  --color-success-fg: #f3fff8;
+  --color-success-soft: #e5f7ee;
+  --color-danger: #d83a52;
+  --color-danger-fg: #fff7f8;
+  --color-danger-soft: #fdecee;
+  --color-border: #d7e1ee;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --shadow-border:
+    0px 0px 0px 1px rgba(20, 35, 59, 0.05),
+    0px 1px 2px -1px rgba(20, 35, 59, 0.05),
+    0px 8px 24px -12px rgba(20, 35, 59, 0.12);
+  --shadow-border-hover:
+    0px 0px 0px 1px rgba(20, 35, 59, 0.08),
+    0px 8px 28px -12px rgba(20, 35, 59, 0.16);
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+.flip-scene {
+  perspective: 900px;
+}
+
+.flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 400ms var(--ease-smooth-out);
+}
+
+.flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
